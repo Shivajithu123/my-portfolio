@@ -1,0 +1,767 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shivadath A | Software Testing Faculty</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-color: #2563eb;
+            --secondary-color: #1e40af;
+            --accent-color: #f59e0b;
+            --text-color: #1f2937;
+            --light-bg: #f8fafc;
+            --white: #ffffff;
+            --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s ease;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--white);
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: var(--white);
+            box-shadow: var(--shadow);
+            z-index: 1000;
+            padding: 1rem 2rem;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--primary-color);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-color);
+            font-weight: 500;
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-color);
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 6rem 2rem 2rem;
+            background: linear-gradient(135deg, #eff6ff 0%, var(--white) 100%);
+        }
+
+        .hero-content h1 {
+            font-size: 3.5rem;
+            color: var(--secondary-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .hero-content .title {
+            font-size: 1.5rem;
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+            font-weight: 600;
+        }
+
+        .hero-content .location {
+            color: #6b7280;
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+        }
+
+        .hero-content p {
+            max-width: 700px;
+            margin: 0 auto 2rem;
+            color: #4b5563;
+            font-size: 1.1rem;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 0.8rem 2rem;
+            background: var(--primary-color);
+            color: var(--white);
+            text-decoration: none;
+            border-radius: 8px;
+            transition: var(--transition);
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: 500;
+        }
+
+        .btn:hover {
+            background: var(--secondary-color);
+            transform: translateY(-2px);
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 2px solid var(--primary-color);
+            color: var(--primary-color);
+        }
+
+        .btn-outline:hover {
+            background: var(--primary-color);
+            color: var(--white);
+        }
+
+        /* Section Styles */
+        section {
+            padding: 5rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            color: var(--secondary-color);
+            margin-bottom: 3rem;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 3px;
+            background: var(--primary-color);
+        }
+
+        /* About Section */
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: start;
+        }
+
+        .about-text h3 {
+            font-size: 1.8rem;
+            color: var(--secondary-color);
+            margin-bottom: 1rem;
+        }
+
+        .about-text p {
+            margin-bottom: 1rem;
+            color: #4b5563;
+        }
+
+        /* Skills Section */
+        #skills {
+            background: var(--light-bg);
+            max-width: 100%;
+        }
+
+        .skills-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .skill-category {
+            background: var(--white);
+            padding: 1.5rem;
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+        }
+
+        .skill-category h4 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+            border-bottom: 2px solid var(--light-bg);
+            padding-bottom: 0.5rem;
+        }
+
+        .skill-category ul {
+            list-style: none;
+        }
+
+        .skill-category li {
+            padding: 0.4rem 0;
+            color: #4b5563;
+        }
+
+        .skill-category li::before {
+            content: "▹";
+            color: var(--primary-color);
+            margin-right: 0.5rem;
+        }
+
+        /* Experience Section */
+        .timeline {
+            position: relative;
+            padding-left: 2rem;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            height: 100%;
+            width: 2px;
+            background: var(--primary-color);
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 2.5rem;
+            padding-left: 2rem;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -2rem;
+            top: 0.5rem;
+            width: 12px;
+            height: 12px;
+            background: var(--primary-color);
+            border-radius: 50%;
+            transform: translateX(-5px);
+        }
+
+        .timeline-item h4 {
+            color: var(--secondary-color);
+            font-size: 1.2rem;
+            margin-bottom: 0.3rem;
+        }
+
+        .timeline-item .company {
+            color: var(--primary-color);
+            font-weight: 500;
+        }
+
+        .timeline-item .date {
+            color: #6b7280;
+            font-size: 0.9rem;
+            margin-bottom: 0.8rem;
+        }
+
+        .timeline-item ul {
+            list-style: none;
+        }
+
+        .timeline-item li {
+            padding: 0.3rem 0;
+            color: #4b5563;
+            position: relative;
+            padding-left: 1.2rem;
+        }
+
+        .timeline-item li::before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            color: var(--primary-color);
+        }
+
+        /* Projects Section */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .project-card {
+            background: var(--white);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            border: 1px solid #e5e7eb;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+        }
+
+        .project-header {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            padding: 1.5rem;
+            color: var(--white);
+        }
+
+        .project-header h4 {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .project-content {
+            padding: 1.5rem;
+        }
+
+        .project-content ul {
+            list-style: none;
+        }
+
+        .project-content li {
+            padding: 0.4rem 0;
+            color: #4b5563;
+            position: relative;
+            padding-left: 1.2rem;
+        }
+
+        .project-content li::before {
+            content: "▹";
+            position: absolute;
+            left: 0;
+            color: var(--primary-color);
+        }
+
+        /* Certifications Section */
+        .cert-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .cert-card {
+            background: var(--light-bg);
+            padding: 1.5rem;
+            border-radius: 10px;
+            border-left: 4px solid var(--primary-color);
+            transition: var(--transition);
+        }
+
+        .cert-card:hover {
+            background: var(--white);
+            box-shadow: var(--shadow);
+        }
+
+        .cert-card h4 {
+            color: var(--secondary-color);
+            font-size: 1rem;
+            margin-bottom: 0.3rem;
+        }
+
+        .cert-card p {
+            color: #6b7280;
+            font-size: 0.9rem;
+        }
+
+        /* Publications Section */
+        .pub-card {
+            background: var(--light-bg);
+            padding: 1.5rem;
+            border-radius: 10px;
+            margin-bottom: 1.5rem;
+            transition: var(--transition);
+        }
+
+        .pub-card:hover {
+            box-shadow: var(--shadow);
+        }
+
+        .pub-card h4 {
+            color: var(--secondary-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .pub-card .conference {
+            color: var(--primary-color);
+            font-weight: 500;
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .pub-card p {
+            color: #6b7280;
+            font-size: 0.9rem;
+        }
+
+        .pub-card a {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .pub-card a:hover {
+            text-decoration: underline;
+        }
+
+        /* Education Section */
+        .education-item {
+            background: var(--light-bg);
+            padding: 1.5rem;
+            border-radius: 10px;
+            margin-bottom: 1rem;
+            border-left: 4px solid var(--primary-color);
+        }
+
+        .education-item h4 {
+            color: var(--secondary-color);
+            font-size: 1.1rem;
+        }
+
+        .education-item .institution {
+            color: var(--primary-color);
+            font-weight: 500;
+        }
+
+        .education-item .date {
+            color: #6b7280;
+            font-size: 0.9rem;
+        }
+
+        .education-item .gpa {
+            color: #4b5563;
+            margin-top: 0.5rem;
+            font-weight: 500;
+        }
+
+        .education-item .coursework {
+            margin-top: 0.8rem;
+            color: #6b7280;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--secondary-color);
+            color: var(--white);
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .social-links a {
+            width: 45px;
+            height: 45px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: var(--transition);
+        }
+
+        .social-links a:hover {
+            background: var(--primary-color);
+        }
+
+        footer p {
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <div class="logo">Shivadath A</div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#certifications">Certifications</a></li>
+                <li><a href="#publications">Publications</a></li>
+                <li><a href="#education">Education</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>Shivadath A</h1>
+            <div class="title">Software Testing Professional</div>
+            <div class="location">📍 Kasaragod, Kerala</div>
+            <p>Computer Science graduate with a strong foundation in manual and automated software testing. Known for accuracy, accountability, and quality-focused mindset with expertise in Selenium, Playwright, and CI/CD integration.</p>
+            <div class="hero-buttons">
+                <a href="#projects" class="btn">View My Work</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about">
+        <h2 class="section-title">About Me</h2>
+        <div class="about-content">
+            <div class="about-text">
+                <h3>Quality-Focused Testing Professional</h3>
+                <p>I am a Computer Science graduate with a strong foundation in both manual and automated software testing. My IEEE leadership roles gave me early experience in documentation, process analysis, and ensuring delivery quality.</p>
+                <p>I led the charge in confirming model performance, testing user interface dashboards, and ensuring software quality in my final year project. I am known for my accuracy, accountability, and quality-focused mindset.</p>
+                <p>Currently working as a Software Testing Faculty at Soften Technologies, I specialize in designing and implementing automated testing frameworks that improve test execution speed and reduce manual testing efforts.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience">
+        <h2 class="section-title">Experience</h2>
+        <div class="timeline">
+            <div class="timeline-item">
+                <h4>Software Testing Faculty</h4>
+                <div class="company">Soften Technologies | Kochi, Kerala</div>
+                <div class="date">Nov 2025 – Present</div>
+                <ul>
+                    <li>Designed and implemented automated testing frameworks using Selenium and Java, improving test case execution speed by 40% and reducing manual testing efforts by 45%</li>
+                    <li>Integrated automated test suites into CI/CD pipelines with Github Actions</li>
+                    <li>implemented BDD frameworks using Cucumber</li>
+                    <li>Gained Deep techncial knowledge in software testing domain</li>
+                    <li>Designed and implemented automated login validation scripts for various websites, utilizing Playwright and Selenium; enhanced testing efficiency, reducing manual testing hours</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills">
+        <div class="skills-container">
+            <h2 class="section-title">Technical Skills</h2>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h4>💻 Programming Languages</h4>
+                    <ul>
+                        <li>C</li>
+                        <li>Java</li>
+                        <li>Python</li>
+                        <li>SQL</li>
+                        <li>JavaScript</li>
+                    </ul>
+                </div>
+                <div class="skill-category">
+                    <h4>🧪 Testing Tools</h4>
+                    <ul>
+                        <li>Selenium</li>
+                        <li>Playwright</li>
+                        <li>Postman</li>
+                        <li>JUnit</li>
+                        <li>TestNG</li>
+                        <li>Cucumber (BDD)</li>
+                        <li>JMeter</li>
+                    </ul>
+                </div>
+                <div class="skill-category">
+                    <h4>🔧 Tools & Platforms</h4>
+                    <ul>
+                        <li>Jenkins (CI/CD)</li>
+                        <li>Git</li>
+                        <li>Jira</li>
+                        <li>GitHub Actions</li>
+                    </ul>
+                </div>
+                <div class="skill-category">
+                    <h4>📋 Testing Expertise</h4>
+                    <ul>
+                        <li>Automated Testing</li>
+                        <li>Manual Testing</li>
+                        <li>Performance Testing</li>
+                        <li>API Testing</li>
+                        <li>BDD Frameworks</li>
+                        <li>UI/UX Testing</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects">
+        <h2 class="section-title">Projects</h2>
+        <div class="projects-grid">
+            <div class="project-card">
+                <div class="project-header">
+                    <h4>Real-Time Violence and Unattended Object Detection</h4>
+                </div>
+                <div class="project-content">
+                    <ul>
+                        <li>Designed a Python Kivy dashboard for visualization and monitoring</li>
+                        <li>Performed Functional Testing of both the trained ML model and the dashboard to ensure end-to-end reliability and accuracy</li>
+                        <li>Conducted Smoke Testing and UI/UX Testing of the dashboard to validate core functionalities and improve user experience</li>
+                        <li>Published as "SecureVision" at IEEE NetACT 2025 Conference</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="project-card">
+                <div class="project-header">
+                    <h4>Web Application Testing</h4>
+                </div>
+                <div class="project-content">
+                    <ul>
+                        <li>Designed and implemented automated login validation scripts using Playwright and Selenium</li>
+                        <li>Enhanced testing efficiency, reducing manual testing hours significantly</li>
+                        <li>Improved release timelines through automated regression testing</li>
+                        <li>Integrated test suites into CI/CD pipeline</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Certifications Section -->
+    <section id="certifications">
+        <h2 class="section-title">Certifications</h2>
+        <div class="cert-grid">
+            <div class="cert-card">
+                <h4>Generative AI Course in Software Testing and Documentation</h4>
+                <p>Coursera</p>
+                <a href="https://www.coursera.org/account/accomplishments/verify/RY5ZQEO79ZRV" title="link">View Certificate</a>
+            </div>
+            <div class="cert-card">
+                <h4>Introduction to GitHub Actions</h4>
+                <p>Coursera</p>
+                <a href="https://www.coursera.org/account/accomplishments/verify/ROCWP8GODOSU" title="link" >View Certificate</a>
+            </div>
+            <div class="cert-card">
+                <h4>Automation Framework Design using TestNG</h4>
+                <p>Coursera</p>
+                <a href="https://www.coursera.org/account/accomplishments/verify/1U15NEXPUM0D" title="link" >View Certificate</a>
+            </div>
+            <div class="cert-card">
+                <h4>API Testing a Real Web Application via Postman</h4>
+                <p>Coursera</p>
+                <a href="https://www.coursera.org/account/accomplishments/verify/AMFFS5NTK2OE" title="link" >View Certificate</a>
+            </div>
+            <div class="cert-card">
+                <h4>Python Intermediate</h4>
+                <p>Sololearn</p>
+                <a href="https://api2.sololearn.com/v2/certificates/CC-HQYENH1J/image/png?t=638953141751408280" title="link">View Certificate</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Publications Section -->
+    <section id="publications">
+        <h2 class="section-title">Publications</h2>
+        <div class="pub-card">
+            <h4>SecureVision: A Lightweight Real-Time Framework for Aggression and Unattended Object Detection in Surveillance Videos</h4>
+            <div class="conference">2025 International Conference on Networks & Advances in Computational Technologies (NetACT), IEEE</div>
+            <p>A framework for real-time aggression and unattended object detection in surveillance videos using computer vision and machine learning techniques.</p>
+            <a href="https://ieeexplore.ieee.org/abstract/document/11187643">Publication Link →</a>
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section id="education">
+        <h2 class="section-title">Education</h2>
+        <div class="education-item">
+            <h4>Bachelor of Technology in Computer Science and Engineering</h4>
+            <div class="institution">Government Engineering College Idukki</div>
+            <div class="date">June 2025</div>
+            <div class="gpa">GPA: 6.88/10.0</div>
+            <div class="coursework">Coursework: Software Testing, Java, Python</div>
+        </div>
+    </section>
+
+
+    <footer>
+        <div class="social-links">
+            <a href="https://github.com/Shivajithu123/Shivajithu123" title="GitHub">GH</a>
+            <a href="www.linkedin.com/in/
+shivadath-a-b232a5231" title="LinkedIn">LI</a>
+            <a href="mailto:shivadath.623@gmail.com" title="Email">✉</a>
+        </div>
+        <p>&copy; 2025 Shivadath A. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Navbar background on scroll
+        window.addEventListener('scroll', function() {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 50) {
+                nav.style.background = 'rgba(255, 255, 255, 0.95)';
+            } else {
+                nav.style.background = 'var(--white)';
+            }
+        });
+    </script>
+</body>
+</html>
